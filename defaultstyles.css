@@ -4,7 +4,7 @@
 
 a:link, a:visited {
 	text-decoration:none;
-	color:#2E8B57;
+	color:008000;
 }
 a:hover {
 	color:#990000;	
@@ -129,7 +129,7 @@ h1 {
 
 h2 {
 	margin-top:0;
-	color:#494949;
+	color:#008000;
 	font-weight:normal;
 	font-size:200%;
 }
