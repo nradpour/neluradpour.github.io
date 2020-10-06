@@ -1,6 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
+a {
+  color: #007bff;	
+}
+
 a:visited {
 	text-decoration:none;
 	color:#2e8b86;
