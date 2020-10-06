@@ -224,6 +224,11 @@ li {
     padding:0 8px;
 }
 
+.navbar-toggler {
+	position:relative;
+	z-index: 10;
+}
+
 nav a {
 	position: relative;
 	display: inline-block;
