@@ -25,7 +25,8 @@ body {
 
 #container {
 	width:960px;
-	margin:auto;
+	max-width:100%;
+	margin:10px auto auto;
 	font-size:14px;
 }
 #ucb {
@@ -218,4 +219,12 @@ li {
     float:left;
     line-height:32px;
     padding:0 8px;
-}		
+}	
+
+
+@media(max-width:992px) {
+	#container {
+	   width: 90%;
+	}	
+}
+
