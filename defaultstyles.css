@@ -5,12 +5,9 @@ a {
   color: #007bff;	
 }
 
-a:visited {
-	text-decoration:none;
-	color:#0056b3;
-}
+
 a:hover {
-	color:#0056b3;	
+	color:#005fc4;	
 }
 a.current:link, a.current:visited {
 	color:#111;
