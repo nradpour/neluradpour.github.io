@@ -43,6 +43,8 @@ body {
 
 }	
 #banner {
+        position: relative;
+z-index:1;
 	color:#FFF;
 	padding:15px;
 	
@@ -226,7 +228,7 @@ li {
 
 .navbar-toggler {
 	position:relative;
-	z-index: 10;
+	z-index: 10!important;
 }
 
 nav a {
