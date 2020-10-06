@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
+a {
+    color: #2e8b86
+}
 
 a:link, a:visited {
 	text-decoration:none;
