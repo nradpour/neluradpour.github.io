@@ -1,16 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
 
-a {
-    color: #2e8b86
-}
-
 a:link, a:visited {
 	text-decoration:none;
 	color:#2e8b86;
 }
 a:hover {
-	color:#1a504d;	
+	color:#990000;	
 }
 a.current:link, a.current:visited {
 	color:#111;
