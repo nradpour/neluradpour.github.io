@@ -8,6 +8,7 @@ a {
 
 a:hover {
 	color:#005fc4;	
+	text-decoration: none;
 }
 a.current:link, a.current:visited {
 	color:#111;
