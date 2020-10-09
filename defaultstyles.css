@@ -61,6 +61,7 @@ h1 {
 	margin:0;
 	padding: 0;
 	font-size:30px;
+        line-height: 1;
 }
 #banner p {
 	margin:0;
@@ -324,6 +325,8 @@ nav a:focus {
        margin-top:0
        border-radius:0;
      }
+
+    #banner { border-radius 0}
 }
 
 navbar-expand-md{
