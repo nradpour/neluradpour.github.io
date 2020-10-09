@@ -217,6 +217,18 @@ h1 {
 .label-long {
     background-color: #26004d;
 }
+ .menu-toggle {
+   transition: all 0.3s ease;
+   text-transform: uppercase;
+   font-size: 0.95rem;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.menu-toggle:hover,
+.menu-toggle:active {
+   color: #f5f5f5;
+}
 
 li {
     font-size:16px;
