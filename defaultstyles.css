@@ -220,7 +220,7 @@ h1 {
  .menu-toggle {
    transition: all 0.3s ease;
    text-transform: uppercase;
-   font-size: 0.95rem;
+   font-size: 0.85rem;
    font-weight: bold;
    cursor: pointer;
 }
