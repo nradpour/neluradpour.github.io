@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+*:focus,
+*:active {
+   outline: none
+}
+
 a {
   color: #007bff;	
 }
