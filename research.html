@@ -1,142 +1,84 @@
-<!doctype html>
-<html class="zc-html">
- 
+<!DOCTYPE html>
+<html>
+
 <head>
-  <meta charset="utf-8">
-  <title>ZingSoft Demo</title>
-  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-  <style>
-    .chart--container {
-      height: 100%;
-      width: 100%;
-      min-height: 530px;
-    }
- 
-    .zc-ref {
-      display: none;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <title>D3.js Step by Step: Step 2 - A Nested Donut Chart</title>
+  <link data-require="normalize@*" data-semver="3.0.1" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" />
 </head>
-​
- 
-<body class="zc-body">
-  ​
-  
- 
- <div[id$="license"] {
-  display: none !important;
-}
-           </div> 
+
+<body>
+  <div id="chart"></div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.min.js" data-semver="3.4.6" data-require="d3@*"></script>
   <script>
-    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"]; // CHART CONFIG
-    // -----------------------------
-    let chartConfig = {
-      type: 'nestedpie',
-      title: {
-        text: 'Animated Nested Pie Chart'
-      },
-      legend: {
-        borderColor: 'gray',
-        borderRadius: '5px',
-        borderWidth: '1px',
-        dragHandler: 'icon',
-        header: {
-          text: 'Ages',
-          fontColor: 'purple',
-          fontFamily: 'Georgia',
-          fontSize: '12px',
-          fontWeight: 'normal'
-        },
-        icon: {
-          lineColor: 'orange'
-        },
-        item: {
-          fontColor: 'black',
-          fontFamily: 'Georgia'
-        },
-        lineStyle: 'dashdot',
-        marker: {
-          type: 'circle'
-        },
-        minimize: true,
-        toggleAction: 'remove'
-      },
-      plot: {
-        tooltip: {
-          text: '%data-year Ages %t: %v',
-          padding: '10%',
-          alpha: 0.7,
-          backgroundColor: 'white',
-          borderColor: 'gray',
-          borderRadius: '3px',
-          borderWidth: '1px',
-          fontColor: 'black',
-          fontFamily: 'Georgia',
-          fontSize: '12px',
-          lineStyle: 'dashdot',
-          textAlpha: 1
-        },
-        valueBox: {
-          text: '%data-year',
-          fontColor: 'white',
-          fontFamily: 'Georgia',
-          fontSize: '12px',
-          fontWeight: 'normal',
-          rules: [{
-            rule: '%p != 0',
-            visible: false
-          }]
-        },
-        alpha: 0.8,
-        animation: {
-          effect: 'ANIMATION_EXPAND_LEFT',
-          onLegendToggle: false,
-          method: 'ANIMATION_BACK_EASE_OUT',
-          sequence: 'ANIMATION_BY_PLOT',
-          speed: 700
-        },
-        borderColor: 'white',
-        borderWidth: '1px',
-        dataYear: ['2019', '2020', '2021'],
-        shadow: false,
-        sliceStart: '30%'
-      },
-      series: [{
-          text: '0-18',
-          values: [59, 55, 30],
-          backgroundColor: 'orange red',
-          tooltipText: 'Ages %t: %v'
-        },
-        {
-          text: '19-30',
-          values: [60, 50, 35],
-          backgroundColor: 'yellow orange'
-        },
-        {
-          text: '31-34',
-          values: [50, 40, 30],
-          backgroundColor: 'green blue'
-        },
-        {
-          text: '46-64',
-          values: [61, 59, 35],
-          backgroundColor: 'blue purple'
-        },
-        {
-          text: '65 and over',
-          values: [65, 55, 45],
-          backgroundColor: 'purple red'
-        }
-      ]
-    };
- 
-    // RENDER CHARTS
-    // -----------------------------
-    zingchart.render({
-      id: 'myChart',
-      data: chartConfig
-    });
-  </script>
+      (function(d3) {
+        'use strict';
+
+        var dataset1 = [
+          { count: 10 }, 
+          { count: 20 },
+          { count: 30 },
+          { count: 40 }
+        ];
+        
+        var dataset2 = [
+          { count: 5 }, 
+          { count: 15 }, 
+          { count: 25 },
+          { count: 35 },
+          { count: 45 }
+        ];
+
+        var width = 400;
+        var height = 400;
+        var donutWidth = 75;
+        var radius1 = Math.min(width, height) / 2;
+        var radius2 = radius1 - donutWidth;
+        
+        var color1 = d3.scale.category20();
+        var color2 = d3.scale.category20c();
+
+        var svg = d3.select('#chart')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height);
+        var svg1 = svg.append('g')
+          .attr('transform', 'translate(' + (width / 2) + 
+            ',' + (height / 2) + ')');
+        var svg2 = svg.append('g')
+          .attr('transform', 'translate(' + (width / 2) + 
+            ',' + (height / 2) + ')');
+
+        var arc1 = d3.svg.arc()
+          .innerRadius(radius1 - donutWidth)  
+          .outerRadius(radius1);
+        var arc2 = d3.svg.arc()
+          .innerRadius(radius2 - donutWidth)  
+          .outerRadius(radius2);
+          
+        var pie = d3.layout.pie()
+          .value(function(d) { return d.count; })
+          .sort(null);
+
+        var path1 = svg1.selectAll('path')
+          .data(pie(dataset1))
+          .enter()
+          .append('path')
+          .attr('d', arc1)
+          .attr('fill', function(d, i) { 
+            return color1(i);
+          });
+        var path2 = svg2.selectAll('path')
+          .data(pie(dataset2))
+          .enter()
+          .append('path')
+          .attr('d', arc2)
+          .attr('fill', function(d, i) { 
+            return color2(i);
+          });
+
+      })(window.d3);
+    </script>
 </body>
- 
+
 </html>
