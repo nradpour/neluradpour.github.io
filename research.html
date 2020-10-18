@@ -1,96 +1,140 @@
-{
-  type: "nestedpie",
-  title: {
-    text: "Legend"
-  },
-  legend: {
-    'border-width': 1,
-    'border-color': "gray",
-    'border-radius': "5px",
-    'line-style': "dashdot",
-    header: {
-      text: "Ages",
-      'font-family': "Georgia",
-      'font-size':12,
-      'font-color': "purple",
-      'font-weight': "normal"
-    },
-    item: {
-      'font-color': "black",
-      'font-family': "Georgia"
-    },
-    marker: {
-      type: "circle"
-    },
-    'toggle-action': "remove",
-    'minimize': true,
-    'draggable': true,
-    'drag-handler': "icon",
-    'icon': {
-      'line-color': "orange"
+<!doctype html>
+<html class="zc-html">
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingSoft Demo</title>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style>
+    .chart--container {
+      height: 100%;
+      width: 100%;
+      min-height: 530px;
     }
-  },
-  plot: {
-    'value-box': {
-      text: "%data-year",
-      'font-color': "white",
-      'font-family': "Georgia",
-      'font-size':12,
-      'font-weight': "normal",
-      rules: [
+ 
+    .zc-ref {
+      display: none;
+    }
+  </style>
+</head>
+​
+ 
+<body class="zc-body">
+  ​
+  <div id="myChart" class="chart--container">
+    <a href="https://www.zingchart.com/" rel="noopener" class="zc-ref">Powered by ZingChart</a>
+  </div>
+ 
+  <script>
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"]; // CHART CONFIG
+    // -----------------------------
+    let chartConfig = {
+      type: 'nestedpie',
+      title: {
+        text: 'Animated Nested Pie Chart'
+      },
+      legend: {
+        borderColor: 'gray',
+        borderRadius: '5px',
+        borderWidth: '1px',
+        dragHandler: 'icon',
+        header: {
+          text: 'Ages',
+          fontColor: 'purple',
+          fontFamily: 'Georgia',
+          fontSize: '12px',
+          fontWeight: 'normal'
+        },
+        icon: {
+          lineColor: 'orange'
+        },
+        item: {
+          fontColor: 'black',
+          fontFamily: 'Georgia'
+        },
+        lineStyle: 'dashdot',
+        marker: {
+          type: 'circle'
+        },
+        minimize: true,
+        toggleAction: 'remove'
+      },
+      plot: {
+        tooltip: {
+          text: '%data-year Ages %t: %v',
+          padding: '10%',
+          alpha: 0.7,
+          backgroundColor: 'white',
+          borderColor: 'gray',
+          borderRadius: '3px',
+          borderWidth: '1px',
+          fontColor: 'black',
+          fontFamily: 'Georgia',
+          fontSize: '12px',
+          lineStyle: 'dashdot',
+          textAlpha: 1
+        },
+        valueBox: {
+          text: '%data-year',
+          fontColor: 'white',
+          fontFamily: 'Georgia',
+          fontSize: '12px',
+          fontWeight: 'normal',
+          rules: [{
+            rule: '%p != 0',
+            visible: false
+          }]
+        },
+        alpha: 0.8,
+        animation: {
+          effect: 'ANIMATION_EXPAND_LEFT',
+          onLegendToggle: false,
+          method: 'ANIMATION_BACK_EASE_OUT',
+          sequence: 'ANIMATION_BY_PLOT',
+          speed: 700
+        },
+        borderColor: 'white',
+        borderWidth: '1px',
+        dataYear: ['2019', '2020', '2021'],
+        shadow: false,
+        sliceStart: '30%'
+      },
+      series: [{
+          text: '0-18',
+          values: [59, 55, 30],
+          backgroundColor: 'orange red',
+          tooltipText: 'Ages %t: %v'
+        },
         {
-          rule: "%p != 0",
-          visible: false
+          text: '19-30',
+          values: [60, 50, 35],
+          backgroundColor: 'yellow orange'
+        },
+        {
+          text: '31-34',
+          values: [50, 40, 30],
+          backgroundColor: 'green blue'
+        },
+        {
+          text: '46-64',
+          values: [61, 59, 35],
+          backgroundColor: 'blue purple'
+        },
+        {
+          text: '65 and over',
+          values: [65, 55, 45],
+          backgroundColor: 'purple red'
         }
       ]
-    },
-    'data-year': [ "2014", "2015", "2016" ],
-    tooltip: {
-      text: "Ages %t: %v",
-      'font-color': "black",
-      'font-family': "Georgia",
-      'font-size':12,
-      'background-color': "white",
-      'border-width': 1,
-      'border-color': "gray",
-      'border-radius': "3px",
-      'line-style': "dashdot",
-      padding: "10%",
-      'text-alpha': 1,
-      alpha: 0.7
-    },
-
-    alpha:0.8,
-    shadow: false,
-    'border-width': 1,
-    'border-color': "white",
-    'slice-start': "30%",
-  },
-  series: [
-    {
-      values: [59,55,30],
-      'background-color': "orange red",
-      text: "0-18"
-    },
-    {
-      values: [60,50,35],
-      'background-color': "yellow orange",
-      text: "19-30"
-    },
-    {
-      values: [50,40,30],
-      'background-color': "green blue",
-      text: "31-34"
-    },
-    {
-      values: [61,59,35],
-      'background-color': "blue purple",
-      text: "46-64"
-    },
-    {
-      values: [65,55,45],
-      'background-color': "purple red",
-      text: "65 and over"
-    }
-  ]
-}
+    };
+ 
+    // RENDER CHARTS
+    // -----------------------------
+    zingchart.render({
+      id: 'myChart',
+      data: chartConfig
+    });
+  </script>
+</body>
+ 
+</html>
