@@ -25,7 +25,11 @@
 <meta name="msapplication-TileImage" content="/fav-icon.ico/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
-<style>  #test {
+<style>
+@import url(http://fonts.googleapis.com/css?family=Sacramento);
+
+
+  #test {
     position: relative;
     display: inline-block;
   height: 50px;
@@ -48,6 +52,8 @@
     margin: 0 auto;
     text-align: center;
     font-family: "cursive";
+    font-family:'Sacramento'
+
   }
   @keyframes fadeInLeft {
     0% {
@@ -98,7 +104,31 @@
       opacity: 1;
       -webkit-transform: translateX(0);
     }
-  }</style>
+  }
+  /* .side-contact{
+    position: absolute;
+    right: -11px;
+    top: -150px;
+    max-width: 300px;
+    z-index: 5;
+  }
+  #page{
+    overflow: visible;
+    position: relative;
+  } */
+
+  body{
+    background-image:url('background.jpg')
+  }
+  #wrapper{
+    background: #fff;
+    display: flex;
+  }
+
+  .card{
+    padding-top:125px;
+  }
+  </style>
 </head>
 
 <body>
@@ -106,7 +136,7 @@
 
 <div id="container" class="pt-xs-0 pt-lg-4">
     <div id="wrapper">
-  
+      <div>
         <div id="banner-home">
       <div class="row">
         <div class="col-9  intro-header">
@@ -150,29 +180,9 @@
         I completed my B.A. (2016) in Linguistics at the <a href ="https://liberalarts.utexas.edu/linguistics/">University of Texas at Austin</a>  and my M.Sc. (2018) in Computational Linguistics at <a href="http://www.buffalo.edu/">SUNY Buffalo</a>. My complete CV can be found <a href="DRadpourCV.pdf">here</a>.
       </p><br/>
     <p>
-      In my free time, I enjoy painting, biking, exploring (/<a href ="https://www.byfood.com/blog/tokyo/wonders-of-wagashi-japanese-sweet-making-experience">writing</a> <a href ="https://www.yelp.com/user_details?userid=plnP7xeT05bsjd0a4UWI_g">about</a>) dank noms, and skating. </p>
+      In my free time, I enjoy painting, biking, exploring (/occasionally <a href ="https://www.byfood.com/blog/tokyo/wonders-of-wagashi-japanese-sweet-making-experience">writing</a> about) new avenues for culinary creativity, and skating (ice/inline). </p>
     </div>
-    <div class="col-sm-4 mb-2">
-        <div class="card w-100" style="border:none">
-          <img class="card-img-top" src="/images/hehehe.png" alt="^_^" title="photo" id="photo">
-          
-          <div class="card-body px-0" style="border:none">
-          <h3 class="mb-2">contact</h3>
-           <p>University of Colorado Boulder<br>
-           1045 18th Street, UCB 315<br>
-           Boulder, CO 80309<br>
-           <strong>Email:</strnog> dianna.radpour at colorado dot edu<br>
-           </p> 
-            
-              <div class="d-flex flex-row">
-           <a class="pr-1" href="https://scholar.google.com/citations?user=dl_KyMIAAAAJ"><img src="images/icon_google.png" width="25"/></a>&nbsp;
-                                   <a class="px-1" href="https://twitter.com/diannasmusings"><img src="images/icon_twitter.png" width="25"/></a>&nbsp;
-<!--            <a href="https://www.instagram.com/howdydianna/"><img src="images/icon_instagram.png" width="25"/></a>&nbsp;</td> -->
-                     <a class="px-1" href="https://github.com/dradpour"><img src="images/icon_github.png" width="25"/></a>&nbsp;
-                  <a class="pl-1" href="https://www.linkedin.com/in/diannaradpour/"><img src="images/icon_linkedin.png" width="25"/></a>&nbsp;
-            </div>
-          </div>
-        </div>
+
                 <!--
 <iframe src="./contact.html" scrolling="no" height="480px" width="300px" frameborder="0"></iframe>
                 <script>
@@ -181,7 +191,31 @@
             </div>
         </div>
   </div>
+
+  </div>
+  <div class="col-sm-4 mb-2 side-contact">
+    <div class="card w-100" style="border:none">
+      <img class="card-img-top" src="/images/hehehe.png" alt="^_^" title="photo" id="photo">
+      
+      <div class="card-body px-0" style="border:none">
+      <h3 class="mb-2">contact</h3>
+       <p>University of Colorado Boulder<br>
+       1045 18th Street, UCB 315<br>
+       Boulder, CO 80309<br>
+       <strong>Email:</strnog> dianna.radpour at colorado dot edu<br>
+       </p> 
+        
+          <div class="d-flex flex-row">
+       <a class="pr-1" href="https://scholar.google.com/citations?user=dl_KyMIAAAAJ"><img src="images/icon_google.png" width="25"/></a>&nbsp;
+                               <a class="px-1" href="https://twitter.com/diannasmusings"><img src="images/icon_twitter.png" width="25"/></a>&nbsp;
+<!--            <a href="https://www.instagram.com/howdydianna/"><img src="images/icon_instagram.png" width="25"/></a>&nbsp;</td> -->
+                 <a class="px-1" href="https://github.com/dradpour"><img src="images/icon_github.png" width="25"/></a>&nbsp;
+              <a class="pl-1" href="https://www.linkedin.com/in/diannaradpour/"><img src="images/icon_linkedin.png" width="25"/></a>&nbsp;
+        </div>
+      </div>
     </div>
+    </div>
+    
    </div>
 </div>
   
@@ -190,19 +224,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
-    WebFontConfig = {
-      google: { families: ["Loved+by+the+King::latin"] },
-    };
-    (function () {
-      var wf = document.createElement("script");
-      wf.src =
-        ("https:" == document.location.protocol ? "https" : "http") +
-        "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
-      wf.type = "text/javascript";
-      wf.async = "true";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(wf, s);
-    })();
+    // WebFontConfig = {
+    //   google: { families: ["Loved+by+the+King::latin"] },
+    // };
+    // (function () {
+    //   var wf = document.createElement("script");
+    //   wf.src =
+    //     ("https:" == document.location.protocol ? "https" : "http") +
+    //     "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
+    //   wf.type = "text/javascript";
+    //   wf.async = "true";
+    //   var s = document.getElementsByTagName("script")[0];
+    //   s.parentNode.insertBefore(wf, s);
+    // })();
 
     //$(".fancy_title p").lettering();
 
@@ -213,27 +247,27 @@
       // we'll update this, initialize
       dashOffset = dashLen,
       // some arbitrary speed
-      speed = 5,
+      speed = 7.5,
       // the text we will draw
-      txt = "dianna radpour",
+      txt = "Dianna Radpour",
       // start position for x and iterator
       x = 30,
       i = 0;
 
     // Comic Sans?? Let's make it useful for something ;) w/ fallbacks
-    ctx.font = "50px roboto";
+    ctx.font =  "normal" + " " + "normal" + " " + "bold" + " " + "42px" + " " + "Sacramento";
 
     // thickness of the line
     ctx.lineWidth = 1;
 
     // to avoid spikes we can join each line with a round joint
-    //ctx.lineJoin = "round";
+    ctx.lineJoin = "round";
 
     // increase realism letting background (f.ex. paper) show through
     ctx.globalAlpha = 2 / 3;
 
     // some color, lets use a black pencil
-    ctx.strokeStyle = ctx.fillStyle = "#0000FF";
+    ctx.strokeStyle = ctx.fillStyle = "#4d8fac";
 
     (function loop() {
       // clear canvas for each frame
